@@ -1,26 +1,32 @@
-/*
- * Starter file 
- */
-(function() {
-  "use strict";
+//1-- Actual function which takes a string and shifts each character by 1 code
+function shiftCipher(str)
+{
+  // converting all characters to upper case as mentioned in question
+  str = str.toUpperCase();
+  return str.replace(/[A-Z]/g, rot13);
 
-  /**
-   * The starting point in our program, setting up a listener
-   * for the "load" event on the window, signalling the HTML DOM has been constructed
-   * on the page. When this event occurs, the attached function (init) will be called.
-   */
-  window.addEventListener("load", init);
-
-  /**
-   * TODO: Write a function comment using JSDoc.
-   */
-  function init() {
-    // Note: In this function, we usually want to set up our event handlers
-    // for UI elements on the page.
+  function rot13(correspondance)
+  {
+    const charCode = correspondance.charCodeAt();
+    
+    //ASCII codes of -- A = 65, Z = 90
+    return String.fromCharCode(
+      //code to check if it's not exceeding the alphabet
+      charCode + 1 <= 90 ? charCode + 1 : ((charCode + 1) % 90) + 64
+    );
   }
+}
+//function handleclick that gets triggered when clicked on encrypt
 
-  // Add any other functions in this area (you should not implement your
-  // entire program in the init function, for similar reasons that
-  // you shouldn't write an entire Java program in the main method).
+function handleClick()
+{
+  // storing the value of text-area in x
+  let x = document.getElementById("input-text").value;
+  //calling shiftCipher that'll actually cipher the string
+  x = shiftCipher(x);
+  // innerHTML to display the result
+  document.getElementById("result").innerHTML = x;
+}
 
-})();
+// attaching the event handler to the encrypt it button
+document.getElementById("encrypt-it").addEventListener("click", handleClick)
