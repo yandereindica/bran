@@ -1,11 +1,11 @@
 // Part I: testing code that logs a message to the console
 console.log("Window loaded!");
 
-const encryptButton = document.getElementById("encrypt-it");
-encryptButton.addEventListener("click", handleEncrypt);
+const encryptB = document.getElementById("encrypt-it");
+encryptB.addEventListener("click", handleEncrypt);
 
-const resetButton = document.getElementById("reset");
-resetButton.addEventListener("click", handleReset);
+const resetB = document.getElementById("reset");
+resetB.addEventListener("click", handleReset);
 
 // Part III: implement shift cipher
 function shiftCipher(text) 
