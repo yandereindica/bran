@@ -1,6 +1,11 @@
 // Part I: testing code that logs a message to the console
 console.log("Window loaded!");
-document.getElementById("encrypt-it").addEventListener("click", handleClick);
+
+const encryptButton = document.getElementById("encrypt-it");
+encryptButton.addEventListener("click", handleEncrypt);
+
+const resetButton = document.getElementById("reset");
+resetButton.addEventListener("click", handleReset);
 
 // Part III: implement shift cipher
 function shiftCipher(text) 
@@ -24,12 +29,18 @@ function shiftCipher(text)
     return result;
 }
 
-function handleClick()
+function handleEncrypt()
 {
-    console.log("Button clicked!");
+    console.log("Encrypt clicked!");
     const inputText = document.getElementById("input-text").value;
     const encryptedText = shiftCipher(inputText);
     const resultElement = document.getElementById("result");
     resultElement.textContent = encryptedText;
+}
+
+function handleReset()
+{
+    console.log("Reset clicked!");
+    document.getElementById("input-text").value = '';
 }
 // Note: the script tag linking this file to the HTML should be added in the HTML file.
