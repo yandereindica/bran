@@ -1,27 +1,39 @@
-//1-- Actual function which takes a string and shifts each character by 1 code
-function shiftCipher(str) {
-    // converting all characters to upper case as mentioned in question
-    str = str.toUpperCase();
-    return str.replace(/[A-Z]/g, rot13);
-  
-    function rot13(correspondance) {
-      const charCode = correspondance.charCodeAt();
-      //ASCII codes of -- A = 65, Z = 90
-      return String.fromCharCode(
-        // code to check if it's not exceeding the alphabet, for example z=90. So 90+1> z, so it'll be taken a
-        charCode + 1 <= 90 ? charCode + 1 : ((charCode + 1) % 90) + 64
-      );
-    }
-  }
-  // function handleclick that gets triggered when clicked on encrypt
-  function handleClick() {
-    // storing the value of text-area in x
-    let x = document.getElementById("input-text").value;
-    //calling shiftCipher that'll actually cipher the string
-    x = shiftCipher(x);
-    // innerHTML to display the result
-    document.getElementById("result").innerHTML = x;
-  }
-  
-  // attaching the event handler to the encrypt it button
-  document.getElementById("encrypt-it").addEventListener("click", handleClick)
+// Part I: testing code that logs a message to the console
+console.log("Window loaded!");
+
+// Part II: add event listener to button click
+function handleClick() {
+console.log("Button clicked!");
+}
+
+const encryptButton = document.getElementById("encrypt-button");
+encryptButton.addEventListener("click", handleClick);
+
+// Part III: implement shift cipher
+function shiftCipher(text) {
+text = text.toLowerCase();
+let result = "";
+for (let i = 0; i < text.length; i++) {
+if (text[i] < 'a' || text[i] > 'z') {
+result += text[i];
+} else if (text[i] == 'z') {
+result += 'a';
+} else {
+let letter = text.charCodeAt(i);
+let resultLetter = String.fromCharCode(letter + 1);
+result += resultLetter;
+}
+}
+return result;
+}
+
+function handleClick() {
+const inputText = document.getElementById("input-text").value;
+const encryptedText = shiftCipher(inputText);
+const resultElement = document.getElementById("result");
+resultElement.textContent = encryptedText;
+}
+
+encryptButton.addEventListener("click", handleClick);
+
+// Note: the script tag linking this file to the HTML should be added in the HTML file.
