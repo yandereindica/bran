@@ -1,8 +1,6 @@
 // Part I: testing code that logs a message to the console
 console.log("Window loaded!");
-
-const encryptButton = document.getElementById("encrypt-it");
-encryptButton.addEventListener("click", handleClick);
+document.getElementById("encrypt-it").addEventListener("click", handleClick);
 
 // Part III: implement shift cipher
 function shiftCipher(text) 
