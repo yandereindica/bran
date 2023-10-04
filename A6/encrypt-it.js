@@ -1,11 +1,5 @@
 // Part I: testing code that logs a message to the console
-    console.log("Window loaded!");
-
-// Part II: add event listener to button click
-function handleClick()
-{
-    console.log("Button clicked!");
-}
+console.log("Window loaded!");
 
 const encryptButton = document.getElementById("encrypt-it");
 encryptButton.addEventListener("click", handleClick);
@@ -34,6 +28,7 @@ function shiftCipher(text)
 
 function handleClick()
 {
+    console.log("Button clicked!");
     const inputText = document.getElementById("input-text").value;
     const encryptedText = shiftCipher(inputText);
     const resultElement = document.getElementById("result");
