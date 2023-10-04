@@ -39,7 +39,4 @@ function handleClick()
     const resultElement = document.getElementById("result");
     resultElement.textContent = encryptedText;
 }
-
-encryptButton.addEventListener("click", handleClick);
-
 // Note: the script tag linking this file to the HTML should be added in the HTML file.
