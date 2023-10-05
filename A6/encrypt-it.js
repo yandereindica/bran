@@ -1,46 +1,32 @@
-// Part I: testing code that logs a message to the console
-console.log("Window loaded!");
+/*
+* Starter file
+*/
+(function() {
+    "use strict";
 
-const encryptB = document.getElementById("encrypt-it");
-encryptB.addEventListener("click", handleEncrypt);
-
-const resetB = document.getElementById("reset");
-resetB.addEventListener("click", handleReset);
-
-// Part III: implement shift cipher
-function shiftCipher(text) 
-{
-    text = text.toLowerCase();
-    let result = "";
-
-    for (let i = 0; i < text.length; i++)
-    {
-        if (text[i] < 'a' || text[i] > 'z')
-        {
-            result += text[i];
-        } else if (text[i] == 'z') {
-            result += 'a';
-        } else {
-            let letter = text.charCodeAt(i);
-            let resultLetter = String.fromCharCode(letter + 1);
-            result += resultLetter;
-        }
+    window.addEventListener("load", init);
+    /**
+    * The starting point in our program, setting up a listener
+    * for the "load" event on the window, signalling the HTML DOM has been constructed
+    * on the page. When this event occurs, the attached function (init) will be called.
+    */
+    
+    /**
+    * TODO: Write a function comment using JSDoc.
+    */
+    function init() {
+        const encryptButton = document.getElementById("encrypt-it");
+        encryptButton.addEventListener("click", handleEncrypt);
+    // Note: In this function, we usually want to set up our event handlers
+    // for UI elements on the page.
     }
-    return result;
-}
 
-function handleEncrypt()
-{
-    console.log("Encrypt clicked!");
-    const inputText = document.getElementById("input-text").value;
-    const encryptedText = shiftCipher(inputText);
-    const resultElement = document.getElementById("result");
-    resultElement.textContent = encryptedText;
-}
-
-function handleReset()
-{
-    console.log("Reset clicked!");
-    document.getElementById("input-text").value = '';
-}
-// Note: the script tag linking this file to the HTML should be added in the HTML file.
+    function handleEncrypt() {
+        console.log("Button clicked!");
+    }
+    
+    // Add any other functions in this area (you should not implement your
+    // entire program in the init function, for similar reasons that
+    // you shouldn't write an entire Java program in the main method).
+    
+    })();
